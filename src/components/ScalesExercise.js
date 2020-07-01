@@ -1,3 +1,8 @@
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 import _ from "lodash";
 import React from "react";
 
@@ -26,10 +31,19 @@ class ScalesExercise extends React.Component {
   render() {
     const { exercise } = this.state;
     return (
-      <React.Fragment>
-        <h1>{exercise}</h1>
-        <button onClick={this.reload}>Reload</button>
-      </React.Fragment>
+      <Card>
+        <CardContent>
+          <Typography color="textSecondary" gutterBottom>
+            Scales
+          </Typography>
+          <Typography variant="h4">{exercise}</Typography>
+        </CardContent>
+        <CardActions>
+          <Button color="primary" onClick={this.reload}>
+            Reload
+          </Button>
+        </CardActions>
+      </Card>
     );
   }
 }

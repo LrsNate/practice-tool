@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import ScalesExercise from "./components/ScalesExercise";
 
 function App() {
