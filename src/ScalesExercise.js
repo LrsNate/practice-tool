@@ -9,10 +9,26 @@ const exercises = [
 ];
 
 class ScalesExercise extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { exercise: _.sample(exercises) };
+  }
+
+  reload = () => {
+    const previousExercise = this.state.exercise;
+    let exercise;
+    do {
+      exercise = _.sample(exercises);
+    } while (exercise === previousExercise);
+    this.setState({ exercise });
+  };
+
   render() {
+    const { exercise } = this.state;
     return (
       <React.Fragment>
-        <h1>{_.sample(exercises)}</h1>
+        <h1>{exercise}</h1>
+        <button onClick={this.reload}>Reload</button>
       </React.Fragment>
     );
   }
