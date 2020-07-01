@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
+import ScalesExercise from "./ScalesExercise";
 
 function App() {
   return (
     <div className="App">
-      <h1>B</h1>
-      <h1>4ths</h1>
+      <ScalesExercise/>
     </div>
   );
 }
