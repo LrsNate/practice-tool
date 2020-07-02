@@ -13,30 +13,50 @@ const exercises = [
   "G♭ to C (5ths)",
 ];
 
+const tempos = ["70bpm", "80bpm", "90bpm", "100bpm", "110bpm"];
+const articulations = ["Legato", "Portato", "Bebop articulation"];
+
 class ScalesExercise extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { exercise: _.sample(exercises) };
+    this.state = {
+      exercise: _.sample(exercises),
+      tempo: _.sample(tempos),
+      articulation: _.sample(articulations),
+    };
   }
 
   reload = () => {
-    const previousExercise = this.state.exercise;
-    let exercise;
-    do {
-      exercise = _.sample(exercises);
-    } while (exercise === previousExercise);
-    this.setState({ exercise });
+    this.setState({
+      exercise: _.sample(exercises),
+      tempo: _.sample(tempos),
+      articulation: _.sample(articulations),
+    });
   };
 
   render() {
-    const { exercise } = this.state;
+    const { exercise, tempo, articulation } = this.state;
     return (
       <Card>
         <CardContent>
           <Typography color="textSecondary" gutterBottom>
             Scales
           </Typography>
-          <Typography variant="h4">{exercise}</Typography>
+          <Typography variant="h4" gutterBottom>
+            {exercise}
+          </Typography>
+          <Typography color="textSecondary" gutterBottom>
+            Tempo
+          </Typography>
+          <Typography variant="h4" gutterBottom>
+            {tempo}
+          </Typography>
+          <Typography color="textSecondary" gutterBottom>
+            Articulation
+          </Typography>
+          <Typography variant="h4" gutterBottom>
+            {articulation}
+          </Typography>
         </CardContent>
         <CardActions>
           <Button color="primary" onClick={this.reload}>
