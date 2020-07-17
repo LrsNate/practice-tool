@@ -1,6 +1,5 @@
 {
   "name": "practice-tool",
-  "homepage": "http://lrsnate.github.io/practice-tool",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
