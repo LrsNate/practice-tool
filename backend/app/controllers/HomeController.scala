@@ -1,8 +1,13 @@
 package controllers
 
-import javax.inject._
-import play.api._
-import play.api.mvc._
+import javax.inject.Inject
+import javax.inject.Singleton
+import play.api.libs.json.Json
+import play.api.mvc.Action
+import play.api.mvc.AnyContent
+import play.api.mvc.BaseController
+import play.api.mvc.ControllerComponents
+import play.api.mvc.Request
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -18,7 +23,7 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
    * will be called when the application receives a `GET` request with
    * a path of `/`.
    */
-  def index() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
+  def index: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Ok(Json.obj("status" -> "ok"))
   }
 }
